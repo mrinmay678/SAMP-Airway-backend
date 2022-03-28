@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  postgresdb:
+    image: postgres:14.2
+    env_file:
+      - ./.env
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - "8086:5432"
+    restart: always
+    networks:
+      - default
+  
+  app:
+    depends_on:
+      postgresdb:
+        condition: service_started
+    build: .
+    restart: on-failure
+    env_file: ./.env
+    ports:
+      - "$SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT"
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+
+  # mongo:
+  #   image: mongo
+  #   container_name: mongo
+  #   volumes:
+  #     - mongodata:/data/db
+  #   ports:
+  #     - '27017:27017'
+
+  # redis:
+  #   container_name: 'redis'
+  #   image: "redis:6.2.6"
+  #   ports:
+  #     - '6379:6379'
+  #   volumes:
+  #     - redisdata:/data
