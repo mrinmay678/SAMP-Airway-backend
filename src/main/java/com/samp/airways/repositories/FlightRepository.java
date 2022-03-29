@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
     Optional<Flight> findById(Long id);
+
+    Flight save(Optional<Flight> f);
 }

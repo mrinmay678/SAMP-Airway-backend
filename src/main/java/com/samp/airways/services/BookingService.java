@@ -18,6 +18,8 @@ public class BookingService{
     @Autowired
     private BookingRepository bookingRepo;
 
+    @Autowired
+
     public Booking saveBooking(Booking booking){
         return bookingRepo.save(booking);
     }

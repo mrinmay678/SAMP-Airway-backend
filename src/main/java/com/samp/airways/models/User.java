@@ -2,15 +2,18 @@ package com.samp.airways.models;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "users")
 public class User {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
+   private String username;
    private String email;
    private String password;
    private Boolean is_admin=false;
+
 
    public User() {
    }
@@ -40,12 +43,10 @@ public class User {
       this.is_admin = is_admin;
    }
 
-   private String generateHash(String password) {
-      return password;
-   }
+   
 
    public void setPassword(String password) {
-      this.password = generateHash(password);
+      this.password = password;
    }
 
 }

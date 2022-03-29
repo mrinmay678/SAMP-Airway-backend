@@ -12,7 +12,8 @@ public class Flight {
     
     private String flight_name;
     private Long fare;
-    private Integer capacity;
+    private Integer current_capacity;
+    private Integer max_capacity;
 
     public Flight() {
     }
@@ -41,12 +42,18 @@ public class Flight {
         this.fare = fare;
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public Integer getCurrent_capacity() {
+        return current_capacity;
+    }
+    public Integer getMax_capacity() {
+        return max_capacity;
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
+    public void setCurrent_capacity(Integer capacity) {
+        this.current_capacity = capacity;
+    }
+    public void setMax_capacity(Integer capacity) {
+        this.max_capacity = capacity;
     }
 
 }

@@ -91,4 +91,12 @@ public class UserDetail {
       this.phone_number = phone_number;
    }
 
+   public List<Booking> getBookings() {
+      return bookings;
+   }
+
+   public void setBookings(List<Booking> bookings) {
+      this.bookings = bookings;
+   }
+
 }
