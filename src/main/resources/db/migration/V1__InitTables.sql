@@ -6,6 +6,15 @@ CREATE TABLE users (
     is_admin BOOLEAN NOT NULL DEFAULT FALSE,
     unique (id)
 );
+CREATE TABLE passengers (
+    id BIGSERIAL PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    age INT NOT NULL,
+    unique (id)
+);
 CREATE TABLE locations (
     id TEXT NOT NULL PRIMARY KEY,
     city TEXT NOT NULL,
@@ -38,9 +47,11 @@ CREATE TABLE bookings (
     trip BIGINT NOT NULL,
     flight BIGINT NOT NULL,
     total_fare DECIMAL NOT NULL,
+    passengers BIGINT NOT NULL,
     FOREIGN KEY(userid) references users(id),
     FOREIGN KEY(trip) references trips(id),
     FOREIGN KEY(flight) references flights(id),
+    FOREIGN KEY(passengers) references passengers(id),
     unique (id)
 );
 

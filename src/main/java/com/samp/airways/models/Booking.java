@@ -1,5 +1,7 @@
 package com.samp.airways.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,9 @@ public class Booking {
    
    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
    private User userid;
+
+   @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+   private List<Passenger> passengers;
 
    @OneToOne
    private Trip trip;
@@ -51,6 +56,14 @@ public class Booking {
 
    public void setTotal_fare(Long total_fare) {
       this.total_fare = total_fare;
+   }
+
+   public List<Passenger> getPassengers() {
+      return passengers;
+   }
+
+   public void setPassengers(List<Passenger> passengers) {
+      this.passengers = passengers;
    }
 
 }
