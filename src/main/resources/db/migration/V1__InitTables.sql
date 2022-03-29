@@ -16,7 +16,8 @@ CREATE TABLE flights (
     id BIGSERIAL PRIMARY KEY,
     flight_name TEXT NOT NULL,
     fare DECIMAL NOT NULL,
-    capacity BIGINT NOT NULL,
+    current_capacity BIGINT NOT NULL DEFAULT 0,
+    max_capacity BIGINT NOT NULL,
     unique (id)
 );
 CREATE TABLE trips (

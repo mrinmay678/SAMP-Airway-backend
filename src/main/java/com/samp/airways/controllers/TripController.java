@@ -37,7 +37,7 @@ public class TripController {
     }
     
     @RequestMapping("/public/flight")
-    public ResponseEntity<Object> getFlights(@RequestParam Long id) {
+    public ResponseEntity<Object> getFlightDetail(@RequestParam Long id) {
         try{
             Map<String, Object> data = new HashMap<>();
             data.put("trip", tripService.getTrip(id));

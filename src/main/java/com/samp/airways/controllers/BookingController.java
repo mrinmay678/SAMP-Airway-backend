@@ -32,11 +32,11 @@ public class BookingController {
     public ResponseEntity<Object> bookTicket(Booking booking) {
         try{
             Map<String, Object> data = new HashMap<>();
-            bookingService.saveBooking(booking);
             Integer mc = flightService.getCurrentCapactity(booking.getFlight()); // get max capacity
             Integer cc = flightService.getMaxCapactity(booking.getFlight()); // get current capacity
             flightService.updateCurrentCapacity(booking.getFlight()); // update current capacity
             if(cc < mc){
+                bookingService.saveBooking(booking);
                 data.put("confirmed", true);
             }
             else {
