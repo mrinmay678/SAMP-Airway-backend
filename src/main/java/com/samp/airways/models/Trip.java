@@ -3,9 +3,15 @@ package com.samp.airways.models;
 import java.util.Date;
 
 import javax.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "trips")
+@NoArgsConstructor
 public class Trip {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,55 +29,5 @@ public class Trip {
    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
    private Flight flight;
 
-   public Trip() {
-   }
-
-   public Long getId() {
-      return id;
-   }
-
-   public void setId(Long id) {
-      this.id = id;
-   }
-
-   public Location getSource() {
-      return source;
-   }
-
-   public void setSource(Location source) {
-      this.source = source;
-   }
-
-   public Location getDestination() {
-      return destination;
-   }
-
-   public void setDestination(Location destination) {
-      this.destination = destination;
-   }
-
-   public Date getDeparture() {
-      return departure;
-   }
-
-   public void setDeparture(Date departure) {
-      this.departure = departure;
-   }
-
-   public Date getArrival() {
-      return arrival;
-   }
-
-   public void setArrival(Date arrival) {
-      this.arrival = arrival;
-   }
-
-   public Flight getFlight() {
-      return flight;
-   }
-
-   public void setFlight(Flight flight) {
-      this.flight = flight;
-   }
 
 }

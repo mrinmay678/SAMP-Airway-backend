@@ -4,8 +4,15 @@ import java.sql.Date;
 import javax.persistence.*;
 import java.util.*;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "user_details")
+@NoArgsConstructor
 public class UserDetail {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,80 +30,5 @@ public class UserDetail {
    private Date dob;
    private String country_code;
    private String phone_number;
-
-   public UserDetail() {
-   }
-
-   public Long getId() {
-      return id;
-   }
-
-   public void setId(Long id) {
-      this.id = id;
-   }
-
-   public User getUserId() {
-      return userid;
-   }
-
-   public void setUserId(User user_id) {
-      this.userid = user_id;
-   }
-
-   public String getFirst_name() {
-      return first_name;
-   }
-
-   public void setFirst_name(String first_name) {
-      this.first_name = first_name;
-   }
-
-   public String getLast_name() {
-      return last_name;
-   }
-
-   public void setLast_name(String last_name) {
-      this.last_name = last_name;
-   }
-
-   public String getProfile_pic() {
-      return profile_pic;
-   }
-
-   public void setProfile_pic(String profile_pic) {
-      this.profile_pic = profile_pic;
-   }
-
-   public Date getDob() {
-      return dob;
-   }
-
-   public void setDob(Date dob) {
-      this.dob = dob;
-   }
-
-   public String getCountry_code() {
-      return country_code;
-   }
-
-   public void setCountry_code(String country_code) {
-      this.country_code = country_code;
-   }
-
-   public String getPhone_number() {
-      return phone_number;
-   }
-
-   public void setPhone_number(String phone_number) {
-      this.phone_number = phone_number;
-   }
-
-   public List<Booking> getBookings() {
-      return bookings;
-   }
-
-   public void setBookings(List<Booking> bookings) {
-      this.bookings = bookings;
-   }
 
 }

@@ -47,7 +47,7 @@ CREATE TABLE bookings (
     trip BIGINT NOT NULL,
     flight BIGINT NOT NULL,
     total_fare DECIMAL NOT NULL,
-    passengers BIGINT NOT NULL,
+    passengers jsonb NOT NULL,
     FOREIGN KEY(userid) references users(id),
     FOREIGN KEY(trip) references trips(id),
     FOREIGN KEY(flight) references flights(id),
@@ -66,5 +66,13 @@ CREATE TABLE user_details (
     bookings BIGINT NOT NULL,
     FOREIGN KEY(userid) references users(id),
     FOREIGN KEY(bookings) references bookings(id),
+    unique (id)
+);
+CREATE TABLE tokens (
+    id BIGSERIAL PRIMARY KEY,
+    userid BIGINT NOT NULL,
+    access_token TEXT NOT NULL,
+    refresh_token TEXT NOT NULL,
+    FOREIGN KEY(userid) references users(id),
     unique (id)
 );
