@@ -33,3 +33,6 @@ build/
 .vscode/
 data
 .m2
+
+*.devcontainer
+*.log
