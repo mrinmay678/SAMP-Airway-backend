@@ -18,6 +18,20 @@
 	</properties>
 	<dependencies>
 
+		<!-- <dependency>
+			<groupId>springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>1.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>

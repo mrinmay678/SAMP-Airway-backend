@@ -19,7 +19,7 @@ public class UserDetail {
    private Long id;
    
    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
-   private User userid;
+   private AppUser userid;
 
    @OneToMany(targetEntity = Booking.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
    private List<Booking> bookings;

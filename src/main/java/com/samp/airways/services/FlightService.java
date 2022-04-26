@@ -16,22 +16,22 @@ public class FlightService{
     @Autowired
     private FlightRepository flightRepo;
 
-    public Flight saveFlight(Flight flight){
-        return flightRepo.save(flight);
+    public void saveFlight(Flight flight){
+        flightRepo.save(flight);
     }
 
-    public Integer getCurrentCapactity(Flight flight){
-        Optional<Flight> f = flightRepo.findById(flight.getId());
+    public Integer getCurrentCapactity(Long flight){
+        Optional<Flight> f = flightRepo.findById(flight);
         return f.get().getCurrent_capacity();
     }
-    public Integer getMaxCapactity(Flight flight){
-        Optional<Flight> f = flightRepo.findById(flight.getId());
+    public Integer getMaxCapactity(Long flight){
+        Optional<Flight> f = flightRepo.findById(flight);
         return f.get().getMax_capacity();
     }
 
-    public Flight updateCurrentCapacity(Flight flight){
-        Optional<Flight> f = flightRepo.findById(flight.getId());
-        f.get().setCurrent_capacity(f.get().getCurrent_capacity()+1);
-        return flightRepo.save(f);
+    public void updateCurrentCapacity(Long flight){
+        Flight f = flightRepo.findById(flight).get();
+        f.setCurrent_capacity(f.getCurrent_capacity()+1);
+        flightRepo.save(f);
     }
 }

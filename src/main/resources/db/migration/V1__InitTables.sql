@@ -47,7 +47,7 @@ CREATE TABLE bookings (
     trip BIGINT NOT NULL,
     flight BIGINT NOT NULL,
     total_fare DECIMAL NOT NULL,
-    passengers jsonb NOT NULL,
+    passengers BIGINT NOT NULL,
     FOREIGN KEY(userid) references users(id),
     FOREIGN KEY(trip) references trips(id),
     FOREIGN KEY(flight) references flights(id),

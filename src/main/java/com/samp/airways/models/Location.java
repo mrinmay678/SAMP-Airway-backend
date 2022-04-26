@@ -17,6 +17,6 @@ public class Location {
    private String id;
    
    private String city;
-   private String country_code;
+   private String country;
 
 }

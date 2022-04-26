@@ -2,7 +2,7 @@ package com.samp.airways.services;
 
 import javax.transaction.Transactional;
 
-import com.samp.airways.models.User;
+import com.samp.airways.models.AppUser;
 import com.samp.airways.models.UserDetail;
 import com.samp.airways.repositories.UserDetailRepository;
 import com.samp.airways.requests.UserCreationRequest;
@@ -17,11 +17,11 @@ public class UserDetailService {
     private UserDetailRepository userDetailRepo;
 
 
-    public UserDetail getUserDetail(User user) {
+    public UserDetail getUserDetail(AppUser user) {
         return userDetailRepo.findByUserid(user.getId());
     }
 
-    public UserDetail saveUserDetail(User user, UserCreationRequest user_creation_request) {
+    public UserDetail saveUserDetail(AppUser user, UserCreationRequest user_creation_request) {
         UserDetail userDetail = new UserDetail();
         userDetail.setUserid(user);
         userDetail.setFirst_name((String) user_creation_request.first_name);

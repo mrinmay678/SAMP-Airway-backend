@@ -18,11 +18,10 @@ public class LocationController {
     @Autowired
     private LocationService locationService;
     
-    @Autowired
-    private Response res;
     
     @RequestMapping("/public/location")
     public ResponseEntity<Object> getLocation() {
+        Response res = new Response();
         try{
             Map<String, Object> data = new HashMap<>();
             data.put("location", locationService.getAllLocations());
